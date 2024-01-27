@@ -41,7 +41,7 @@ const Form = () =>
    // Radio Button
    const[isRadio, setIsRadio] = useState('');
    const handleRadioChange =() =>{
-      setIsRadio(!isRadio);
+      setIsRadio(isRadio);
    };
    //End  Radio Button
     return (
