@@ -16,7 +16,7 @@ const Form = () =>
      function handleSubmit(e){
         e.preventDefault();
         if(!inputData.name || inputData.lname || !inputData.email || !inputData.password
-             || !inputData.number || !inputData.date || !inputData.city){
+             || !inputData.number || !inputData.date){
             alert ("All fields are Mandatory")
         }
         else{
@@ -29,6 +29,21 @@ const Form = () =>
 
       setSelectedOption(e.target.value);
      };
+   // End Select box function
+      
+   //   CheckBox Function
+      const [isChecked, setIsChecked] = useState('');
+      const handleCheckboxChange = () => {
+         setIsChecked(!isChecked);
+       };    
+   // End  CheckBox Function
+
+   // Radio Button
+   const[isRadio, setIsRadio] = useState('');
+   const handleRadioChange =() =>{
+      setIsRadio(!isRadio);
+   };
+   //End  Radio Button
     return (
     <>
         <pre>{(flag)? <h2 className='ui-define'>Hello {inputData.name}, You Have Registered
@@ -69,6 +84,24 @@ const Form = () =>
           <option value="Lahore">Lahore</option>
           <option value="Islamabad">Islamabad</option>
          </select>
+       </div>
+       <div>
+        <h4>Languages</h4>
+         <label htmlFor='html'>Html</label>
+         <input type='checkbox' id='html' name='html' value={isChecked.html} onChange={handleCheckboxChange} />
+         <label htmlFor='css'>Css</label>
+         <input type='checkbox' id='css' name='css' value={isChecked.css} onChange={handleCheckboxChange}/>
+         <label htmlFor='javascript'>Javascript</label>
+         <input type='checkbox' id='javascript' name='javascript' value={isChecked.javscript} onChange={handleCheckboxChange}/>
+         <p>Checkbox is {isChecked ? 'checked' : 'unchecked'}</p>
+       </div>
+       <div>
+         <h4>Gender</h4>
+         <label htmlFor='male'>Male</label>
+         <input type='radio' id='male' name='male' value={isRadio.male} onChange={handleRadioChange}/>
+         <label htmlFor='female'>Female</label>
+         <input type='radio' id='female' name='female' value={isRadio.female} onChange={handleRadioChange}/>
+         <p>Selected option: {isRadio}</p>
        </div>
        <div>
          <button type='submit'>Submit</button>
